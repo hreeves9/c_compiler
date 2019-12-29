@@ -28,7 +28,7 @@ let load_file f =
 
 
 let () =
-  let fileContent = load_file "/Users/harveyreeves/Desktop/c_compiler/return_2.c" in
+  let fileContent = load_file Sys.argv.(1) in
   let x = stripchars fileContent in
   let explodedList = Lexer.explode x in 
   let symbolList = Lexer.check_for_symbol explodedList in
@@ -39,9 +39,3 @@ let () =
 
 
 
-(* #TODO
- * - create git repo
- * - parse the symbols
- * - profit
- *
- *)
