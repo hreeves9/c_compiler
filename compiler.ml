@@ -1,3 +1,4 @@
+
 let stripchars s =
   let len = String.length s in
   let res = Bytes.create len in
@@ -31,7 +32,9 @@ let () =
   let x = stripchars fileContent in
   let explodedList = Lexer.explode x in 
   let symbolList = Lexer.check_for_symbol explodedList in
-  List.iter (Printf.printf "%s\n") symbolList
+  let ast = Parser.parser symbolList in
+  Generate.generate ast
+
 ;;
 
 
